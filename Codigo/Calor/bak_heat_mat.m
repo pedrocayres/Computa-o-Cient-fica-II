@@ -1,6 +1,8 @@
-function [U] = bak_heat_mat(u0, ul, ur, f, T, N, M)
+function [U, t, x] = bak_heat_mat(u0, ul, ur, f, T, N, M)
    dt = T / M;
+   t = 0:dt:T;
    dx = 1 / (N+1);
+   x = 0:dx:1;
    l = dt / (dx*dx);
    U = zeros(N+2, M+1);
    U(:, 1) = u0(linspace(0, 1, N+2)');
