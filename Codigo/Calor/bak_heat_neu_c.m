@@ -13,7 +13,7 @@ function [U, t, x] = bak_heat_neu_c(u0, vl, ur, f, T, N, M)
       b = U(1:N, n) + dt*f(((1:N)'-0.5)*dx, n*dt);
       b(1) = b(1) - dt / dx * vl(n*dt);
       b(N) = b(N) + l * ur(n*dt);
-      U(1:N, n+1) = B\b;
+      U(1:N, n+1) = B\b';
    end
 end
 
