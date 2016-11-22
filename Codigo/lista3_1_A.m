@@ -9,7 +9,7 @@
 close all
 hold on
 
-Ms = [1000,4000, 16000];%, 1600, 1800, 2000];
+Ms = [1000,4000,16000];%, 1600, 1800, 2000];
 Ns = linspace(20,5220,21);
 
 n = size(Ns);
@@ -26,9 +26,9 @@ for i=1:m
     dx = [];
     for j=1:n
         N = Ns(j);
-        [U,t,x] = bak_heat_neu_a(@u0_expsin, @vl_expsin, @ur_expsin, @f_expsin, T, N, M);
+        [U,t,x] = bak_heat_neu_a(@u0_expcos, @vl_expcos, @ur_expcos, @f_expcos, T, N, M);
         [xx,tt] = meshgrid(x,t);
-        u_exact = sol_expsin(x,t');
+        u_exact = sol_expcos(x,t');
         dx = [dx,1/(N+1)];
         erros = [erros, max(max(abs(U-u_exact')))];
     end;
@@ -59,9 +59,9 @@ for i=1:n
     dt = [];
     for j=1:m
         M = Ms(j);
-        [U,t,x] = bak_heat_neu_a(@u0_expsin, @vl_expsin, @ur_expsin, @f_expsin, T, N, M);
+        [U,t,x] = bak_heat_neu_a(@u0_expcos, @vl_expcos, @ur_expcos, @f_expcos, T, N, M);
         [xx,tt] = meshgrid(x,t);
-        u_exact = sol_expsin(x,t');
+        u_exact = sol_expcos(x,t');
         dt = [dt,T/M];
         erros = [erros, max(max(abs(U-u_exact')))];
     end;

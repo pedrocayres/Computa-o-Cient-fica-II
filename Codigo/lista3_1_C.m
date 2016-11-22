@@ -9,8 +9,8 @@
 close all
 hold on
 
-Ms = [80, 100, 200, 400];
-Ns = linspace(20,5220,21);
+Ms = [1000,4000, 16000];
+Ns = linspace(10,2250,41);
 
 n = size(Ns);
 n = n(2);
@@ -45,8 +45,8 @@ title('M fixo');
 
 figure;
 hold on;
-Ns = [1400,5600,22400];
-Ms = linspace(20,15220,41);
+Ns = [200,400,800,1600,3200];
+Ms = linspace(20,5220,21);
 n = size(Ns);
 n = n(2);
 
